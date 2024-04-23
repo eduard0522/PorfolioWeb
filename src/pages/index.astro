@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Avatar from '../components/Avatar.astro';
+import AboutMe from '../components/AboutMe.astro';
+import HrSeparator from '../components/SeparatorSections.astro';
+import Experience from '../components/Experience.astro';
+import Proyects from '../components/Proyects.astro';
+import Skills from '../components/Skills.astro'
+---
+
+<Layout title="Porfolio">
+<Header/>
+	<main class="  px-4 md:max-w-[700px] md:mx-auto">
+		<Avatar/>
+		<AboutMe/>
+		<HrSeparator/>
+		<Experience/>
+		<HrSeparator/>
+		<Proyects/>
+		<HrSeparator/>
+		<Skills/>
+	</main>
+</Layout>
