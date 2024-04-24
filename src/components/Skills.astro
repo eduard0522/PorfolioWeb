@@ -1,26 +1,79 @@
-<section>
+---
+const icons = [
+  {
+    name: 'HTML',
+    value : 7,
+    url:'/icons/html.svg'
+  },
+  {
+    name: 'CSS',
+    value : 7,
+    url:'/icons/css.svg'
+  },
+  {
+    name: 'JavaScript',
+    value : 7,
+    url:'/icons/javascript.svg'
+  },
+  {
+    name: 'Astro',
+    value : 6,
+    url:'/icons/astro.svg'
+  },
+  {
+    name: 'React',
+    value : 6,
+    url:'/icons/react.svg'
+  },
+  {
+    name: 'Tailwind',
+    value : 6,
+    url:'/icons/tailwind.svg'
+  },
+  {
+    name: 'Node.js',
+    value : 6,
+    url:'/icons/nodejs.svg'
+  },
+  {
+    name: 'Mysql',
+    value : 6,
+    url:'/icons/mysql.svg'
+  },
+
+  {
+    name: 'MongoDB',
+    value : 6,
+    url:'/icons/mongoDB.svg'
+  },
+]
+---
+
+<section id="tecnologias"  class="flex flex-col justify-center">
   <div class="flex gap-4 items-center "> 
     <img src="icons/brain.svg" alt="Icono alucivo a una rama de gitHub" class="w-10">
     <h2 class="capitalize text-slate-200 text-2xl font-bold">
-      Habilidades
+      Tecnologías
     </h2>
   </div>
 
-
+  {icons.map((icon) => 
   <article class="mt-12">
-    <div class=" flex items-center gap-4">
-      <div>
-        <img src="icons/html.svg" alt="Icono html">
+      <div class=" flex items-center gap-4">
+        <div>
+          <img src= {icon.url} alt="Icono html" class="w-12" >
+        </div>
+        <div class="w-4/5 relative">
+          <p class="absolute right-0 text-slate-400  "> {icon.value < 7 ? 'Basico' : 'Intermedio '}</p>
+          <label for="html" class="text-slate-100 font-bold"> {icon.name} </label>
+          <meter id="html" value={icon.value} min="0" max="10"  class:list={['w-full  ', { basico: icon.value < 7  } ]}  ></meter>
+        </div>
       </div>
-      <div class="w-4/5 relative">
-        <p class="absolute right-0 text-slate-400">Intermedio</p>
-        <label for="html" class="text-slate-100 font-bold"> HTML </label>
-        <meter id="html" value="7" min="0" max="10"  class="w-full"></meter>
-      </div>
-    </div>
+    </article>
+  )}
 
-  </article>
 </section>
+
 
 <style>
   meter::-webkit-meter-bar{
@@ -31,6 +84,9 @@
     background-image: linear-gradient(90deg ,#340c69, #9964e4d0);
     border-radius: .5rem;
   }
-</style>
 
-<br><br><br><br><br><br><br><br><br><br>
+ .basico::-webkit-meter-optimum-value{
+    background-image: linear-gradient(90deg  , #a590c7db,#8b26a9);
+  }
+
+</style> 

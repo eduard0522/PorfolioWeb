@@ -6,10 +6,12 @@ import AboutMe from '../components/AboutMe.astro';
 import HrSeparator from '../components/SeparatorSections.astro';
 import Experience from '../components/Experience.astro';
 import Proyects from '../components/Proyects.astro';
-import Skills from '../components/Skills.astro'
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Porfolio">
+<Layout title="Eduard Villamil">
 <Header/>
 	<main class="  px-4 md:max-w-[700px] md:mx-auto">
 		<Avatar/>
@@ -20,5 +22,8 @@ import Skills from '../components/Skills.astro'
 		<Proyects/>
 		<HrSeparator/>
 		<Skills/>
+		<Contact/>
 	</main>
+
+	<Footer/>
 </Layout>

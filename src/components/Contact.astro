@@ -1,0 +1,73 @@
+---
+
+const inputs = [
+
+{
+  label : "Nombre",
+  tipo : "text",
+},
+{
+  label : "Correo",
+  tipo : "email",
+},
+{
+  label : "Mensaje",
+  tipo : "text",
+},
+] 
+---
+<section id="Contact" class="text-center mt-20 flex flex-col"> 
+
+    <h2 class="text-slate-100 uppercase text-sm md:text-base" >Contactame y desarrollemos ese proyecto juntos.</h2>
+
+    <form  action=""  class="flex flex-col text-slate-100 gap-6 p-12">
+        {inputs.map((input)=>
+          <div class="relative mb-8 ">
+              <input id={input.label} type="text" placeholder=""  name={input.label}
+              class="peer bg-transparent w-full border-b-2 border-slate-500 outline-none px-2 focus:border-primary-700"/>
+                <label for={input.label}  class=" flex flex-col pb-2 absolute top-0 left-1 -translate-y-4 peer-focus:text-primary-500                     peer-focus:scale-90 peer-focus:origin-top-left peer-focus:-translate-y-8 transition-all peer-[:not(:placeholder-shown)]:-translate-y-8 ">
+                  {input.label}
+              </label>
+          </div>
+        )}
+          <button  type="submit" class="bg-wOpacity-900 text-primary-700 w-28 rounded-lg py-1 font-semibold hover:bg-slate-300 hover:text-primary-600  self-end"> Contactar</button>
+    </form>
+</section>
+
+
+
+<script>
+  const Form = document.querySelector('form');
+  Form.addEventListener('submit',(e) => {
+  e.preventDefault();
+    let nombre = Form.Nombre.value;
+    let Correo = Form.Correo.value;
+    let Mensaje = Form.Mensaje.value;
+
+    let dates =  `********** Nuevo Cliente ********** 
+     NOMBRE: ${nombre} ,
+     CORREO: ${Correo} , 
+     MENSAJE : ${Mensaje}`
+
+  let Token = '6830768230:AAEsOBJqfV5ZRzi21AoRGzrwCtCX1WKJaY0';
+    let chatId = '-4186621995';
+    let urlTelegram = `https://api.telegram.org/bot${Token}/sendMessage?chat_id=${chatId}&text=${dates}`;  
+
+    let api = new XMLHttpRequest();
+
+    api.open("GET" , urlTelegram, true);
+    api.send();
+
+    alert('Mensaje enviado con exito.');
+    location.reload()
+
+   nombre.value = "";
+   Correo.value = "";
+   Mensaje.value = "";
+
+   
+});
+
+
+
+</script> 

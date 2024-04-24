@@ -1,24 +1,133 @@
-<header class="flex w-[100%] h-auto fixed top-3 left-2 md:max-w-[1000px]  md:block  md:mx-auto md:left-[50%]  md:translate-x-[-50%] z-20">
+---
+const listItems = [
+  {
+    url: "icons/home.svg",
+    href: "#inicio",
+    name: "Inicio",
+  },
+  {
+    url: "icons/briefcase-2.svg",
+    href: "#experiencia",
+    name: "Experiencia",
+  },
+  {
+    url: "icons/code.svg",
+    href: "#proyectos",
+    name: "Proyectos",
+  },
+  {
+    url: "icons/brain-fill.svg",
+    href: "#tecnologias",
+    name: "Tecnologías",
+  },
+];
+---
 
-  <div class="w-[100%] bg-primaryOpacity-800 text-center  rounded-br-2xl  md:flex md:bg-gradient-to-r from-wOpacity-600 to-primaryOpacity-900  md:rounded-lg md:justify-between md:px-5 md:items-center md:mx-auto md:h-10  md:backdrop-blur-sm">
+<header 
+  class="flex w-[100%] justify-between h-auto fixed  top-3 left-2 md:max-w-[1000px] md:block md:mx-auto md:left-[50%] md:translate-x-[-50%] z-20"
+>
+  <div id="menuMobil"
+    class=" w-4/5 bg-primaryOpacity-400 invisible backdrop-blur-sm text-center rounded-br-2xl md:flex md:bg-gradient-to-r from-wOpacity-900 to-primaryOpacity-800 md:rounded-lg md:justify-between md:px-5 md:items-center md:mx-auto md:h-10 md:backdrop-blur-sm md:w-full md:visible"
+  >
+    <ul
+      class="flex flex-col gap-y-8 text-slate-200  text-2xl font-bold w-4/5 pl-4 mx-auto md:flex-row md:font-normal md:gap-y-0 md:mx-0 md:text-base md:items-center md:pl-0 md:w-full"
+    >
+      {
+        listItems.map((item) => (
+          <li class="flex md:items-center hover:underline hover:text-slate-50 transition-all">
+            <img
+              src={item.url}
+              alt="icono de inicio"
+              class="w-10 md:invisible "
+            />
+            <a href={item.href} class="px-4">
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
 
-    <ul class="flex flex-col gap-y-8  text-white text-2xl font-bold w-4/5 pl-4 mx-auto md:flex-row md:font-normal md:gap-y-0 md:mx-0 md:text-base md:items-center md:pl-0  md:w-full">
-
-      <li class="flex md:items-center"> <img src="icons/home.svg" alt="icono de inicio" class="w-10 md:invisible ">  <a href="" class="px-4">Inicio</a> </li>
-
-      <li class="flex md:items-center"> <img src="icons/info-circle.svg" alt="icono de inicio" class="w-10 md:invisible">  <a href=""  class="px-4">Sobre mí</a> </li>
-
-      <li class="flex md:items-center"> <img src="icons/briefcase-2.svg" alt="icono de inicio" class="w-10 md:invisible ">  <a href=""  class="px-4">Experiencia </a> </li>
-
-      <li class="flex md:items-center"> <img src="icons/code.svg" alt="icono de inicio" class="w-10 md:invisible">  <a href=""  class="px-4">Proyectos</a> </li>
     </ul>
     <div>
-      <button class=" bg-slate-300 rounded-lg p-2 text-primary-700 font-bold text-lg mx-auto mt-4 mb-4 md:mt-0 md:mb-0 md:py-0 md:font-semibold md:text-primary-700" > Contactar </button>
+      <a href="https://api.whatsapp.com/send?phone=573205697245&text=Hola,  quiero trabajar contigo!! Hablame." target="_blank" rel="noopener">
+        <button 
+        class="bg-slate-300 rounded-lg p-2 text-primary-700 font-bold text-lg md:text-sm mx-auto mt-4  py-2 px-2
+        mb-8 md:mt-0 md:mb-0 md:font-semibold md:text-primary-700 hover:bg-slate-100 transition-all ">
+        Contactar
+      </button>
+      </a>
+     
     </div>
   </div>
 
-  <div class="md:invisible">
-    <img src="icons/menu-2.svg" alt="icono de menu desplegable"  class="w-16">
+  <div class="md:invisible ">
+    <label class="hamburger">
+      <input type="checkbox"  id="btnMenu"/>
+      <svg viewBox="0 0 40 40 ">
+        <path
+          class="line line-top-bottom"
+          d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+        ></path>
+        <path class="line" d="M7 16 27 16"></path>
+      </svg>
+    </label>
   </div>
-  
 </header>
+
+
+<style>
+  .closedMenu {
+    visibility: visible;
+  }
+  .hamburger {
+    cursor: pointer;
+  }
+
+  .hamburger input {
+    display: none;
+  }
+
+  .hamburger svg {
+    /* The size of the SVG defines the overall size */
+    height: 4em;
+    /* Define the transition for transforming the SVG */
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+
+  .line {
+    fill: none;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+    /* Define the transition for transforming the Stroke */
+    transition:
+      stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  
+  .line-top-bottom {
+    stroke-dasharray: 12 63;
+  }
+
+  .hamburger input:checked + svg {
+    transform: rotate(-45deg);
+  }
+
+  .hamburger input:checked + svg .line-top-bottom {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
+  }
+</style>
+
+
+<script>
+  const  btnMenu =  document.getElementById('btnMenu');
+  const menuMobil = document.getElementById('menuMobil');
+  
+  btnMenu.addEventListener('click', (e) => {
+   menuMobil.classList.toggle('closedMenu');
+  });
+  </script>
