@@ -27,7 +27,7 @@ const listItems = [
   class="flex w-[100%] justify-between h-auto fixed  top-3 left-2 md:max-w-[1000px] md:block md:mx-auto md:left-[50%] md:translate-x-[-50%] z-20"
 >
   <div id="menuMobil"
-    class=" w-4/5 bg-primaryOpacity-400 invisible backdrop-blur-sm text-center rounded-br-2xl md:flex md:bg-gradient-to-r from-wOpacity-900 to-primaryOpacity-800 md:rounded-lg md:justify-between md:px-5 md:items-center md:mx-auto md:h-10 md:backdrop-blur-sm md:w-full md:visible"
+    class=" w-4/5 bg-primaryOpacity-400 invisible backdrop-blur-sm text-center rounded-br-2xl md:flex md:bg-gradient-to-r from-wOpacity-900 to-primaryOpacity-800 md:rounded-lg md:justify-between md:px-5 md:items-center md:mx-auto md:h-10 md:backdrop-blur-sm md:w-full md:visible transition-all duration-150 "
   >
     <ul
       class="flex flex-col gap-y-8 text-slate-200  text-2xl font-bold w-4/5 pl-4 mx-auto md:flex-row md:font-normal md:gap-y-0 md:mx-0 md:text-base md:items-center md:pl-0 md:w-full"
@@ -50,11 +50,16 @@ const listItems = [
     </ul>
     <div>
       <a href="https://api.whatsapp.com/send?phone=573205697245&text=Hola,  quiero trabajar contigo!! Hablame." target="_blank" rel="noopener">
-        <button 
-        class="bg-slate-300 rounded-lg p-2 text-primary-700 font-bold text-lg md:text-sm mx-auto mt-4  py-2 px-2
-        mb-8 md:mt-0 md:mb-0 md:font-semibold md:text-primary-700 hover:bg-slate-100 transition-all ">
-        Contactar
-      </button>
+        <div class="flex justify-center gap-2 bg-slate-300 rounded-lg  text-primary-700 font-bold text-lg md:text-sm mx-auto py-1 px-4 mt-8
+            mb-8 md:mt-0 md:mb-0 md:font-semibold md:text-primary-700 hover:bg-slate-100 transition-all ">
+           <button 
+            class="">
+            Contactar
+          </button>
+          <img src="./icons/send.svg" alt="Icono de un avión, alusivo a enviar un mensaje" class="text-2xl text-primary-700">
+
+        </div>
+       
       </a>
      
     </div>

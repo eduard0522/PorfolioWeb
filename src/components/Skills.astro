@@ -16,18 +16,28 @@ const icons = [
     url:'/icons/javascript.svg'
   },
   {
+    name: 'TypeScript',
+    value : 6,
+    url:'/icons/typescript.svg'
+  },
+  {
     name: 'Astro',
     value : 6,
     url:'/icons/astro.svg'
   },
   {
     name: 'React',
-    value : 6,
+    value : 8,
     url:'/icons/react.svg'
   },
   {
-    name: 'Tailwind',
+    name: 'Angular',
     value : 6,
+    url:'/icons/angular.svg'
+  },
+  {
+    name: 'Tailwind',
+    value : 7,
     url:'/icons/tailwind.svg'
   },
   {
@@ -64,9 +74,9 @@ const icons = [
           <img src= {icon.url} alt="Icono html" class="w-12" >
         </div>
         <div class="w-4/5 relative">
-          <p class="absolute right-0 text-slate-400  "> {icon.value < 7 ? 'Basico' : 'Intermedio '}</p>
+          <p class="absolute right-0 text-slate-400  "> {icon.value < 6 ? 'Basico' : 'Intermedio'}</p>
           <label for="html" class="text-slate-100 font-bold"> {icon.name} </label>
-          <meter id="html" value={icon.value} min="0" max="10"  class:list={['w-full  ', { basico: icon.value < 7  } ]}  ></meter>
+          <meter id="html" value={icon.value} min="0" max="10"  class:list={['w-full rounded-2xl  overflow-hidden', { basico: icon.value < 7  } ]}  ></meter>
         </div>
       </div>
     </article>
@@ -79,10 +89,11 @@ const icons = [
   meter::-webkit-meter-bar{
     background-color: #DFC8FF;
     border: none;
+    border-radius: .2rem;
   }
   meter::-webkit-meter-optimum-value{
     background-image: linear-gradient(90deg ,#340c69, #9964e4d0);
-    border-radius: .5rem;
+    border-radius: 0;
   }
 
  .basico::-webkit-meter-optimum-value{

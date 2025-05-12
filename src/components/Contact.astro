@@ -34,22 +34,43 @@ const inputs = [
     </form>
 </section>
 
-
-
 <script>
   const Form = document.querySelector('form');
   Form.addEventListener('submit',(e) => {
+    
   e.preventDefault();
-    let nombre = Form.Nombre.value;
-    let Correo = Form.Correo.value;
-    let Mensaje = Form.Mensaje.value;
 
+    let nombre = Form.Nombre.value;
+    let correo = Form.Correo.value;
+    let mensaje = Form.Mensaje.value;
+
+    if( nombre === ""){
+      return alert("El campo nombre es requerido")
+    }
+    if(correo === ""){
+      return alert("El campo correo es requerido")
+    }
+
+    if(mensaje === ""){
+      return alert("El campo mensaje es requerido")
+    }
+
+    function validarCorreo(correo) {
+         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     return regex.test(correo);
+    }
+
+    if (!validarCorreo(correo)) {
+     return alert("Ingresa un correo valido")
+    } 
+    
+   
     let dates =  `********** Nuevo Cliente ********** 
      NOMBRE: ${nombre} ,
-     CORREO: ${Correo} , 
-     MENSAJE : ${Mensaje}`
+     CORREO: ${correo} , 
+     MENSAJE : ${mensaje}`
 
-  let Token = '6830768230:AAEsOBJqfV5ZRzi21AoRGzrwCtCX1WKJaY0';
+    let Token = '6830768230:AAEsOBJqfV5ZRzi21AoRGzrwCtCX1WKJaY0';
     let chatId = '-4186621995';
     let urlTelegram = `https://api.telegram.org/bot${Token}/sendMessage?chat_id=${chatId}&text=${dates}`;  
 
@@ -61,11 +82,9 @@ const inputs = [
     alert('Mensaje enviado con exito.');
     location.reload()
 
-   nombre.value = "";
-   Correo.value = "";
-   Mensaje.value = "";
-
-   
+    nombre.value = "";
+    correo.value = "";
+    mensaje.value = "";
 });
 
 
